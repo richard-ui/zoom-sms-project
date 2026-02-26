@@ -1,5 +1,9 @@
-FEATURE FLAG DEFINITION -
-ApplicationFeature.php
+# Zoom SMS Integration – Code Responsibility Overview
+
+This document explains the files, key functions, and responsibilities for the Zoom SMS integration feature. It maps each piece of code to its role in the system.
+
+
+## 1. Feature Flag Definition – `ApplicationFeature.php`
 
 Purpose:
 Defines the feature switch used to safely roll out SMS functionality.
@@ -12,7 +16,7 @@ Responsibility:
 - Prevents breaking existing Zoom call functionality
 
 
-CONDITIONAL UI RENDERING -
+## 2. Conditional UI Rendering -
 fixed_sidebar.html.twig
 
 Purpose:
@@ -27,8 +31,7 @@ Responsibility:
 - Keeps DOM clean when feature is disabled
 - Ensures frontend JS logic can detect SMS availability via DOM presence
 
-
-ATTACHING ZOOM BEHAVIOUR TO PHONE NUMBERS
+## 3. Attaching zoom behaviour to phone numbers
 ZoomExtension.php
 
 Purpose:
@@ -55,7 +58,7 @@ Why this is important:
 - Gracefully falls back when feature disabled
 
 
-SIDEBAR UI STYLING - 
+## 4. Sidebar UI styling
 global_zoom.less
 
 Purpose:
@@ -70,8 +73,7 @@ Styles:
 - SMS/Call buttons
 - Contact options layout
 
-
-SIDEBAR STATE MANAGEMENT -
+## 5. Sidebar state management
 zoomSidebar.ts
 
 Purpose:
@@ -86,8 +88,7 @@ Responsibilities:
 - Zoom iframe
 - Contact options panel
 
-
-SMS / CALL OPTION PANEL
+## 6. SMS/CALL option panel
 showSmsCallOptions(...)
 
 Purpose:
@@ -99,8 +100,7 @@ Responsibilities:
 - Re-attaches event listeners
 - Opens sidebar with contact options visible
 
-
-MAIN FRONTEND BEHAVIOUR CONTROLLER
+## 7. Main frontend behaviour controller
 zoomListener.ts
 
 Purpose:
