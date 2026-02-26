@@ -1,0 +1,23 @@
+<div id="zoom-fixed-sidebar">
+    <div class="header">
+        <button id="zoom-fixed-sidebar-close"></button>
+    </div>
+
+    {% if isFeatureEnabled(constant('Wren\\CoreBundle\\Entity\\ApplicationFeature::ZOOM_SMS_INTEGRATION')) %}
+        <div id="contact-options" data-current-number=""></div>
+    {% endif %}
+
+    <iframe
+            src="https://applications.zoom.us/integration/phone/embeddablephone/home"
+            id="zoom-global-phone-iframe" class="zoom-integration-iframe"
+            allow="clipboard-read; clipboard-write https://applications.zoom.us">
+    </iframe>
+    <div class="call-details">
+        <span class="loading hidden"><i class="fa fa-spinner fa-spin"></i> Fetching call details...</span>
+        <div class="caller hidden"><i class="fa fa-phone"></i> Call from <span class="customer-name"></span></div>
+        <div class="callee hidden"><i class="fa fa-phone-alt"></i> Calling <span class="customer-name"></span></div>
+    </div>
+
+    <a id="completion-event-modal-button" class="hidden" href="#zoom-completion-modal" data-toggle="modal"></a>
+    <a id="complete-event-modal-button" class="hidden" href="#calendar-complete-event-modal" data-toggle="modal"></a>
+</div>
